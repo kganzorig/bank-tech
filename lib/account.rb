@@ -7,12 +7,12 @@ class Account
 
     def deposit(amount)
         @balance += amount
-        @transactions << Transaction.new(Date.new(2023, 1, 10), amount, credit: amount, balance: @balance)
+        @transactions << AccountTransaction.new(Date.new(2023, 1, 10), amount, credit: amount, balance: @balance)
     end
 
     def withdraw(amount)
         @balance -= amount
-        @transactions << Transaction.new(Date.new(2023, 1, 14), amount, debit: amount, balance: @balance)
+        @transactions << AccountTransaction.new(Date.new(2023, 1, 14), amount, debit: amount, balance: @balance)
     end 
 
     def print_statement
