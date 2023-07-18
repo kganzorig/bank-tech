@@ -1,3 +1,7 @@
+require 'date'
+require_relative 'account_transaction'
+
+
 class Account
     attr_reader :balance, :transactions
 

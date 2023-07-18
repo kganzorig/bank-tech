@@ -84,6 +84,9 @@ class Account
             puts "#{transaction.date} || #{formatted_credit} || #{formatted_debit} || #{formatted_balance}"        end
     end
 end
+```
 
+## 3. IRB 
+![Alt text](image.png)
 
 
