@@ -16,7 +16,9 @@ So that I can see a log of my transactions and my balance I want to print my sta
 ### Install RSpec 
 
 Gem install bundler 
+
 touch Gemfile
+
 bundle install
 
 ## 3. Design the Class System
