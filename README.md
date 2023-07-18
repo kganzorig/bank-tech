@@ -22,23 +22,26 @@ bundle install
 ## 3. Design the Class System
 
 
-  ┌──────────────────┐
-  │AccountTransaction│
-  │                  │
-  │                  │
-  │                  │
-  └────────┬─────────┘
-           │
-           │
-           │
-           │           ┌──────────────┐
-           │           │              │
-           │           │ Account      │
-           └─────────► │              │
-                       │              │
-                       │              │
-                       │              │
-                       └──────────────┘
+
+     ┌──────────────────┐
+     │AccountTransaction│
+     │                  │
+     │                  │
+     │                  │
+     └────────┬─────────┘
+              │
+              │
+              │
+              │           ┌──────────────┐
+              │           │              │
+              │           │ Account      │
+              └─────────► │              │
+                          │              │
+                          │              │
+                          │              │
+                          └──────────────┘
+
+
 
 Also design the interface of each class in more detail._
 
