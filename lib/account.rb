@@ -1,24 +1,30 @@
 class Account
+    attr_reader :balance, :transactions
 
     def initialize
         @balance = 0
         @transactions = []
     end 
 
-    def deposit(amount)
+    def deposit(amount, date)
         @balance += amount
-        @transactions << AccountTransaction.new(Date.new(2023, 1, 10), amount, credit: amount, balance: @balance)
+        @transactions << AccountTransaction.new(date, amount, credit: amount, balance: @balance)
     end
 
-    def withdraw(amount)
+    def withdraw(amount, date)
         @balance -= amount
-        @transactions << AccountTransaction.new(Date.new(2023, 1, 14), amount, debit: amount, balance: @balance)
+        @transactions << AccountTransaction.new(date, amount, debit: amount, balance: @balance)
     end 
 
     def print_statement
         puts 'date || credit || debit || balance'
-        @transactions.each do |transaction| 
-        puts "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance}"
-        end
+
+        sorted_transactions = @transactions.sort_by(&:date).reverse
+
+        sorted_transactions.each do |transaction|
+            formatted_credit = format('%.2f', transaction.credit)
+            formatted_debit = format('%.2f', transaction.debit)
+            formatted_balance = format('%.2f', transaction.balance)
+            puts "#{transaction.date} || #{formatted_credit} || #{formatted_debit} || #{formatted_balance}"        end
     end
 end
