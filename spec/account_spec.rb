@@ -1,5 +1,4 @@
 require 'rspec'
-require_relative '../lib/account_transaction'
 require_relative '../lib/account'
 
 
@@ -25,7 +24,7 @@ require_relative '../lib/account'
             expect(transaction.date).to eq(Date.new(2023, 1, 10))
             expect(transaction.amount).to eq(amount)
             expect(transaction.credit).to eq(amount)
-            expect(transaction.debit).to eq(0.00)
+            expect(transaction.debit).to be_nil
             expect(transaction.balance).to eq(amount)
         end 
     end
@@ -44,7 +43,7 @@ require_relative '../lib/account'
 
             expect(transaction.date).to eq(Date.new(2023, 1, 14))
             expect(transaction.amount).to eq(amount)
-            expect(transaction.credit).to eq(0.00)
+            expect(transaction.credit).to be_nil
             expect(transaction.debit).to eq(amount)
             expect(transaction.balance).to eq(-1000.00)
         end 
@@ -59,9 +58,9 @@ require_relative '../lib/account'
 
             expected_output =
                       "date || credit || debit || balance\n" \
-                      "2023-01-14 || || 500.00 || 2500.00\n" \
-                      "2023-01-13 || 2000.00 || || 3000.00\n" \
-                      "2023-01-10 || 1000.00 || || 1000.00\n"
+                      "2023-01-14 ||  || 500.00 || 2500.00\n" \
+                      "2023-01-13 || 2000.00 ||  || 3000.00\n" \
+                      "2023-01-10 || 1000.00 ||  || 1000.00\n"
 
     expect { account.print_statement }.to output(expected_output).to_stdout
         end 
