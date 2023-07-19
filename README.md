@@ -85,15 +85,15 @@ class Account
         sorted_transactions = @transactions.sort_by(&:date).reverse
 
         sorted_transactions.each do |transaction|
-            formatted_credit = format('%.2f', transaction.credit)
-            formatted_debit = format('%.2f', transaction.debit)
+            formatted_credit =  transaction.credit.nil? ? '' : format('%.2f', transaction.credit)
+            formatted_debit = transaction.debit.nil? ? '' : format('%.2f', transaction.debit)
             formatted_balance = format('%.2f', transaction.balance)
-            puts "#{transaction.date} || #{formatted_credit} || #{formatted_debit} || #{formatted_balance}"        end
+            puts "#{transaction.date} || #{formatted_credit} || #{formatted_debit} || #{formatted_balance}"        
+        end
     end
 end
 ```
 
 ## 3. IRB 
-![Alt text](image.png)
-
+![Alt text](image-1.png)
 
