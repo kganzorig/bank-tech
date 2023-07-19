@@ -10,7 +10,7 @@ RSpec.describe AccountTransaction do
    let(:debit) {''}
    let(:balance) {0}
 
-    context 'when initial 1000.00 is dpeosited in account' do
+    context 'when initial 1000.00 is deposited in account' do
         it 'sets balance' do
             transaction = AccountTransaction.new(date, amount, credit: amount)
 
