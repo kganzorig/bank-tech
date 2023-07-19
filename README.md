@@ -95,4 +95,4 @@ end
 ```
 
 ## 3. IRB 
-![Alt text](image-2.png)
+![Alt text](https://file%252B.vscode-resource.vscode-cdn.net/Users/khuslenganzorig/Desktop/Screenshot%25202023-07-19%2520at%252010.48.13.png?version%253D1689762676336)
