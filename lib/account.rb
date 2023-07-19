@@ -8,16 +8,18 @@ class Account
     def initialize
         @balance = 0
         @transactions = []
+        @credit = nil
+        @debit = nil
     end 
 
     def deposit(amount, date)
         @balance += amount
-        @transactions << AccountTransaction.new(date, amount, credit: amount, balance: @balance)
+        @transactions << AccountTransaction.new(date, amount, credit: amount, debit: nil, balance: @balance)
     end
 
     def withdraw(amount, date)
         @balance -= amount
-        @transactions << AccountTransaction.new(date, amount, debit: amount, balance: @balance)
+        @transactions << AccountTransaction.new(date, amount, credit: nil, debit: amount, balance: @balance)
     end 
 
     def print_statement
@@ -26,9 +28,10 @@ class Account
         sorted_transactions = @transactions.sort_by(&:date).reverse
 
         sorted_transactions.each do |transaction|
-            formatted_credit = format('%.2f', transaction.credit)
-            formatted_debit = format('%.2f', transaction.debit)
+            formatted_credit =  transaction.credit.nil? ? '' : format('%.2f', transaction.credit)
+            formatted_debit = transaction.debit.nil? ? '' : format('%.2f', transaction.debit)
             formatted_balance = format('%.2f', transaction.balance)
-            puts "#{transaction.date} || #{formatted_credit} || #{formatted_debit} || #{formatted_balance}"        end
+            puts "#{transaction.date} || #{formatted_credit} || #{formatted_debit} || #{formatted_balance}"       
+        end
     end
 end
